@@ -1,0 +1,32 @@
+AquaCrop 7.1 (August 2023) - Output created on (date) : 16-01-2026   at (time) : 12:17:31
+Biomass and Yield at Multiple cuttings
+
+   Run:   1
+    Nr   Day  Month Year   DAP Interval  Biomass    Sum(B)   Dry-Yield  Sum(Y) Fresh-Yield  Sum(Y)
+                                 days     ton/ha    ton/ha    ton/ha    ton/ha    ton/ha    ton/ha
+     0     1     7  2011                             0.000               0.000               0.000
+  9999     1     1  2012                            19.706               9.493              10.548
+
+   Run:   2
+    Nr   Day  Month Year   DAP Interval  Biomass    Sum(B)   Dry-Yield  Sum(Y) Fresh-Yield  Sum(Y)
+                                 days     ton/ha    ton/ha    ton/ha    ton/ha    ton/ha    ton/ha
+     0     1     7  2012                             0.000               0.000               0.000
+  9999     1     1  2013                            19.866               9.571              10.634
+
+   Run:   3
+    Nr   Day  Month Year   DAP Interval  Biomass    Sum(B)   Dry-Yield  Sum(Y) Fresh-Yield  Sum(Y)
+                                 days     ton/ha    ton/ha    ton/ha    ton/ha    ton/ha    ton/ha
+     0     1     7  2013                             0.000               0.000               0.000
+  9999     1     1  2014                            19.763               9.521              10.579
+
+   Run:   4
+    Nr   Day  Month Year   DAP Interval  Biomass    Sum(B)   Dry-Yield  Sum(Y) Fresh-Yield  Sum(Y)
+                                 days     ton/ha    ton/ha    ton/ha    ton/ha    ton/ha    ton/ha
+     0     1     7  2014                             0.000               0.000               0.000
+  9999     1     1  2015                            19.937               9.599              10.666
+
+   Run:   5
+    Nr   Day  Month Year   DAP Interval  Biomass    Sum(B)   Dry-Yield  Sum(Y) Fresh-Yield  Sum(Y)
+                                 days     ton/ha    ton/ha    ton/ha    ton/ha    ton/ha    ton/ha
+     0     1     7  2015                             0.000               0.000               0.000
+  9999     1     1  2016                            19.955               9.613              10.682
