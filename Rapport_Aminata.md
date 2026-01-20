@@ -2,14 +2,12 @@ Rapport : Génération de données climatiques et simulations régionales AquaCr
 
 Au cours de ces dernières semaines, j’ai travaillé sur la génération de données synthétiques, notamment la simulation des données climatiques et régionales pour le modèle AquaCrop.
 Ce travail se déroule en plusieurs étapes :
-
-1. Clustering
+Clustering
 Dans ce cas pratique, j’ai utilisé QGIS comme outil de traitement spatial. Le Sénégal a été défini comme zone d’étude, puis sa carte a été découpée en plusieurs clusters de 31 × 31 m, regroupés dans un seul fichier GeoJSON, sans modification de la géométrie initiale.
-
-2. Génération de plusieurs fichiers GeoJSON
-Dans cette étape, j’ai développé un script Python permettant d’extraire chaque cluster et de lui attribuer un fichier GeoJSON unique. Le script prend en entrée un seul fichier GeoJSON contenant l’ensemble des clusters et génère automatiquement des fichiers GeoJSON distincts pour chaque cluster.
-
-3. Simulation des données climatiques (forecast)
+Génération de plusieurs fichiers GeoJSON
+Dans cette étape, j’ai développé un script Python permettant d’extraire chaque cluster et de lui attribuer un fichier GeoJSON unique.
+Le script prend en entrée un seul fichier GeoJSON contenant l’ensemble des clusters et génère automatiquement des fichiers GeoJSON distincts pour chaque cluster.
+Simulation des données climatiques (forecast)
 J’ai cloné un script qui automatise la chaîne de traitement des données climatiques. Celui-ci commence par analyser la géométrie des fichiers GeoJSON afin de définir les zones de culture (20 clusters sélectionnés aléatoirement) au Sénégal. Il calcule ensuite leurs centres et leurs limites géographiques, avec une marge de sécurité afin de garantir une couverture météorologique complète.
 Le script interroge ensuite les serveurs de Copernicus (ECMWF) pour fusionner deux horizons temporels essentiels :
 Les données historiques ERA5, qui décrivent les conditions réelles (précipitations, vent, température) depuis le début de la saison agricole ;
@@ -44,15 +42,36 @@ Gestion de l’environnement :
 Création d’un répertoire temporaire isolé pour chaque simulation ;
 Déploiement de l’exécutable aquacrop.exe et de l’arborescence requise (SIMUL/, OUTP/, LIST/) ;
 Exécution : lancement des simulations via subprocess et nettoyage automatique des fichiers temporaires après l’archivage des résultats.
-Script 2 : AC_PRM_Aminata.py
-Le script AC_PRM_Aminata.py constitue le moteur de configuration et de lancement des simulations AquaCrop. Il permet de générer automatiquement les fichiers de projet .PRM et de lancer le modèle pour chaque cluster et chaque année de simulation.
-Le script parcourt les différents sites climatiques et clusters présents dans les dossiers de données climatiques et sélectionne le fichier sol correspondant à chaque cluster. Pour chaque cluster, il crée un dossier de sortie structuré, dans lequel sont copiés l’exécutable AquaCrop ainsi que les fichiers et répertoires techniques nécessaires au fonctionnement du modèle (SIMUL/, OUTP/ et LIST/).
+Script 2 : AC_PRM.py
+Ce script constitue le moteur de configuration des simulations. Il génère les fichiers de projet. PRM lisibles par AquaCrop :
+Gestion chronologique : calcul des numéros de jours selon le format spécifique AquaCrop (référence depuis 1901) pour la période de simulation (2024–2025) ;
+Couplage des données :
+Climat : fichiers de températures (.Tnx), évapotranspiration (.ETo) et précipitations (.PLU) ;
+Agronomie : types de cultures (.CRO), gestion de l’irrigation (.IRR) et du champ (.MAN) ;
+Pédologie : profils de sols (.SOL) ;
+Continuité des simulations : configuration de l’option KeepSWC afin de conserver l’état hydrique du sol d’une année sur l’autre.
+Les résultats de sortie sont générés de manière structurée dans le répertoire OUTPUT. Chaque simulation dispose de son propre dossier, nommé selon la combinaison unique Site_Cluster_Sol.
+Le script extrait et archive en priorité le fichier de projet. PRM, qui récapitule l’ensemble des conditions de la simulation, ainsi que les résultats détaillés stockés dans le sous-dossier OUTP.
 
-La génération des fichiers projet .PRM est réalisée automatiquement via la fonction run_ac_pro_yrs, en combinant de manière cohérente :
-les fichiers climatiques spécifiques à chaque cluster (.CLI, .Tnx, .ETo, .PLU) ;
-le fichier de culture standard (Mastrop143.CRO) ;
-le fichier d’irrigation (Inet_50RAW.IRR) et le fichier de gestion du champ (SFR30.MAN) ;
-le fichier sol correspondant au cluster, généré précédemment (.SOL).
+
+Voir les types de sol dans aquacrop
+prédire la texture de sol d’un seul point (code javascript et python) : 
+La texture du sol est obtenue en calculant les proportions moyennes de sable, de limon et d’argile pour chaque polygone. Ces fractions granulométriques sont ensuite normalisées et utilisées pour attribuer une classe texturale selon la classification USDA, telle qu’employée dans le modèle AquaCrop.
+
+Prédire la texture de sol de plusieurs points(python)
+Génération des fichiers sol (.SOL) pour AquaCrop : 
+Pour préparer les simulations AquaCrop, un script Python a été conçu pour transformer un fichier unique de textures de sol en plusieurs fichiers sol (.SOL) distincts, chaque fichier correspondant à un cluster spatial.
+Le fichier d’entrée est un GeoJSON contenant, pour chaque cluster, un identifiant unique (id) et une classe de texture du sol (aquacrop_texture). Le script parcourt les polygones et génère automatiquement un fichier .SOL dont le nom reprend l’identifiant du cluster, assurant ainsi une correspondance avec les données climatiques utilisées pour chaque cluster.
+ 
+
+Simulation régionale d’aquacop : 
+Pour réaliser les simulations, un deuxième script Python a été développé afin de lancer automatiquement AquaCrop pour chaque cluster et chaque année de simulation.
+Le script parcourt les différents sites et clusters présents dans les dossiers de données climatiques et sélectionne le fichier sol correspondant à chaque cluster. Il crée pour chaque cluster un dossier de sortie structuré, dans lequel sont copiés les fichiers techniques nécessaires à AquaCrop (répertoires SIMUL, OUTP et LIST) et l’exécutable du modèle.
+Le fichier de projet (.PRM) est généré automatiquement pour chaque cluster via la fonction run_ac_pro_yrs, en utilisant :
+les fichiers climatiques spécifiques à chaque cluster (.CLI, .Tnx, .ETo, .PLU),
+le fichier de culture standard (Mastrop143.CRO),
+le fichier irrigation (Inet_50RAW.IRR) et gestion du champ (SFR30.MAN),
+et le fichier sol correspondant au cluster généré précédemment (.SOL).
 Chaque projet inclut également :
 les dates de début et de fin de simulation ;
 les paramètres liés aux années simulées et aux cycles culturaux.
