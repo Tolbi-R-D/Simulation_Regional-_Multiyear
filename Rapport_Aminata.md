@@ -1,4 +1,5 @@
 Rapport : Génération de données climatiques et simulations régionales AquaCrop
+
 Au cours de ces dernières semaines, j’ai travaillé sur la génération de données synthétiques, notamment la simulation des données climatiques et régionales pour le modèle AquaCrop.
 Ce travail se déroule en plusieurs étapes :
 1. Clustering
