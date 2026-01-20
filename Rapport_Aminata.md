@@ -2,12 +2,12 @@ Rapport : Génération de données climatiques et simulations régionales AquaCr
 
 Au cours de ces dernières semaines, j’ai travaillé sur la génération de données synthétiques, notamment la simulation des données climatiques et régionales pour le modèle AquaCrop.
 Ce travail se déroule en plusieurs étapes :
-1. Clustering
+1. Clustering :
 Dans ce cas pratique, j’ai utilisé QGIS comme outil de traitement spatial. Le Sénégal a été défini comme zone d’étude, puis sa carte a été découpée en plusieurs clusters de 31 × 31 m, regroupés dans un seul fichier GeoJSON, sans modification de la géométrie initiale.
 Génération de plusieurs fichiers GeoJSON
 Dans cette étape, j’ai développé un script Python permettant d’extraire chaque cluster et de lui attribuer un fichier GeoJSON unique.
 Le script prend en entrée un seul fichier GeoJSON contenant l’ensemble des clusters et génère automatiquement des fichiers GeoJSON distincts pour chaque cluster.
-2. Simulation des données climatiques (forecast)
+2. Simulation des données climatiques (forecast) :
 J’ai cloné un script qui automatise la chaîne de traitement des données climatiques. Celui-ci commence par analyser la géométrie des fichiers GeoJSON afin de définir les zones de culture (20 clusters sélectionnés aléatoirement) au Sénégal. Il calcule ensuite leurs centres et leurs limites géographiques, avec une marge de sécurité afin de garantir une couverture météorologique complète.
 Le script interroge ensuite les serveurs de Copernicus (ECMWF) pour fusionner deux horizons temporels essentiels :
 Les données historiques ERA5, qui décrivent les conditions réelles (précipitations, vent, température) depuis le début de la saison agricole ;
