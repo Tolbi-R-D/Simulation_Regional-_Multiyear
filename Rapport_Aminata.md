@@ -1,12 +1,12 @@
 Rapport : Génération de données climatiques et simulations régionales AquaCrop
 Au cours de ces dernières semaines, j’ai travaillé sur la génération de données synthétiques, notamment la simulation des données climatiques et régionales pour le modèle AquaCrop.
 Ce travail se déroule en plusieurs étapes :
-Clustering
+1. Clustering
 Dans ce cas pratique, j’ai utilisé QGIS comme outil de traitement spatial. Le Sénégal a été défini comme zone d’étude, puis sa carte a été découpée en plusieurs clusters de 31 × 31 m, regroupés dans un seul fichier GeoJSON, sans modification de la géométrie initiale.
 Génération de plusieurs fichiers GeoJSON
 Dans cette étape, j’ai développé un script Python permettant d’extraire chaque cluster et de lui attribuer un fichier GeoJSON unique.
 Le script prend en entrée un seul fichier GeoJSON contenant l’ensemble des clusters et génère automatiquement des fichiers GeoJSON distincts pour chaque cluster.
-Simulation des données climatiques (forecast)
+2. Simulation des données climatiques (forecast)
 J’ai cloné un script qui automatise la chaîne de traitement des données climatiques. Celui-ci commence par analyser la géométrie des fichiers GeoJSON afin de définir les zones de culture (20 clusters sélectionnés aléatoirement) au Sénégal. Il calcule ensuite leurs centres et leurs limites géographiques, avec une marge de sécurité afin de garantir une couverture météorologique complète.
 Le script interroge ensuite les serveurs de Copernicus (ECMWF) pour fusionner deux horizons temporels essentiels :
 Les données historiques ERA5, qui décrivent les conditions réelles (précipitations, vent, température) depuis le début de la saison agricole ;
@@ -23,7 +23,7 @@ Sites climatiques : différentes zones géographiques ;
 Clusters : sous-unités climatiques spécifiques à chaque zone ;
 Types de sols : différents profils pédologiques (sol1, sol2, etc.).
 Les données climatiques générées à l’étape 3 (PLU, ETo, Tnx) sont utilisées comme données d’entrée, et deux scripts principaux sont exécutés.
-Script 1 : AC_exec.py
+Script 1 : AC_exec_Aminata.py
 Ce script agit comme un chef d’orchestre chargé de la gestion globale des simulations :
 Exploration dynamique : analyse automatique des répertoires d’entrée pour détecter les sites, clusters et types de sols disponibles ;
 Génération des combinaisons : création de la matrice de simulation (Site × Cluster × Sol) ;
@@ -31,7 +31,7 @@ Gestion de l’environnement :
 Création d’un répertoire temporaire isolé pour chaque simulation ;
 Déploiement de l’exécutable aquacrop.exe et de l’arborescence requise (SIMUL/, OUTP/, LIST/) ;
 Exécution : lancement des simulations via subprocess et nettoyage automatique des fichiers temporaires après l’archivage des résultats.
-Script 2 : AC_PRM.py
+Script 2 : AC_PRM_Aminata.py
 Ce script constitue le moteur de configuration des simulations. Il génère les fichiers de projet. PRM lisibles par AquaCrop :
 Gestion chronologique : calcul des numéros de jours selon le format spécifique AquaCrop (référence depuis 1901) pour la période de simulation (2024–2025) ;
 Couplage des données :
