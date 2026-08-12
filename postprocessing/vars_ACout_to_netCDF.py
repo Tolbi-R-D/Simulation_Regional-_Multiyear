@@ -27,7 +27,11 @@ rows = np.arange(row_start, row_end+1)
 col_start = 0
 col_end = 1
 cols = np.arange(col_start, col_end+1)
+<<<<<<< HEAD
 dir_out = '/RegionalAC_Py/test_linux/OUTPUT/' #AC output dir
+=======
+dir_out = '/RegionalAC_Py/test_linux/OUTPUT_REF/' #AC output dir
+>>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616
 dir_nc = dir_out # the directory where you want your netcdf file
 
 # Long names and units of variables to add information to the netcdf file

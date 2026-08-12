@@ -1,0 +1,96 @@
+cluster_115
+	 7.1		: AquaCrop Version (August 2023)
+	 2
+	 45108		: First day simulation
+	 45291		: Last day simulation
+	 45108		: First day crop
+	 45291		: Last day crop
+-- 1. Climate (CLI) file
+   cluster_115.CLI
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.1 Temperature (TNx or TMP) file
+   cluster_115.Tnx
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.2 Reference ET (ETo) file
+   cluster_115.ETo
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.3 Rain (PLU) file
+   cluster_115.PLU
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.4 Atmospheric CO2 concentration (CO2) file
+   MaunaLoa.CO2
+   ".\SIMUL\"
+-- 2. Calendar file
+   (None)
+   (None)
+-- 3. CROP (CRO) file
+   Mastrop143.CRO
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\crop\"
+- 4. Irrigation management (IRR) file
+   Inet_50RAW.IRR
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\suppl_input\"
+-- 5. Field management (MAN) file
+   SFR30.MAN
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\suppl_input\"
+-- 6. Soil profile (SOL) file
+   cluster_100.SOL
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\soil\"
+-- 7. Groundwater table (GWT) fileT
+   (None)
+   (None)
+-- 8. Initial conditions (SW0) file
+   (None)
+   (None)
+-- 9. Off-season conditions (OFF) file
+   (None)
+   (None)
+10. Field data (OBS) file
+   (None)
+   (None)
+  1
+	 45473		: First day simulation
+	 45656		: Last day simulation
+	 45473		: First day crop
+	 45656		: Last day crop
+-- 1. Climate (CLI) file
+   cluster_115.CLI
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.1 Temperature (TNx or TMP) file
+   cluster_115.Tnx
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.2 Reference ET (ETo) file
+   cluster_115.ETo
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.3 Rain (PLU) file
+   cluster_115.PLU
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\climate\2024-2025\"
+   1.4 Atmospheric CO2 concentration (CO2) file
+   MaunaLoa.CO2
+   ".\SIMUL\"
+-- 2. Calendar file
+   (None)
+   (None)
+-- 3. CROP (CRO) file
+   Mastrop143.CRO
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\crop\"
+- 4. Irrigation management (IRR) file
+   Inet_50RAW.IRR
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\suppl_input\"
+-- 5. Field management (MAN) file
+   SFR30.MAN
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\suppl_input\"
+-- 6. Soil profile (SOL) file
+   cluster_100.SOL
+   "C:\Users\admin\Desktop\Tolbi 2025\Simulation_Regional-_Multiyear\data_senegal\INPUT\soil\"
+-- 7. Groundwater table (GWT) fileT
+   (None)
+   (None)
+-- 8. Initial conditions (SW0) file
+   (None)
+   (None)
+-- 9. Off-season conditions (OFF) file
+   (None)
+   (None)
+10. Field data (OBS) file
+   (None)
+   (None)

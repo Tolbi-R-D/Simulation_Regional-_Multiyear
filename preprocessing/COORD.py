@@ -66,4 +66,10 @@ class MERRA2_GEOreference():
         return lon
     def M2AC_lon_to_col(self, lon):
         col = round((lon-self.M2AC_ini_lon)/self.M2AC_step_lon)
+<<<<<<< HEAD
         return col
+=======
+        return col
+
+
+>>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616

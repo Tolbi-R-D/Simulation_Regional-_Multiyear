@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "cluster_206",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 206, "left": -160476.4521, "top": 1673173.2068, "right": -129476.4521, "bottom": 1642173.2068, "row_index": 7, "col_index": 11 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -15.134766979018295, 15.050988712691701 ], [ -14.847926344407039, 15.058587685707039 ], [ -14.840369795555954, 14.77977293397233 ], [ -15.12684531821863, 14.772320914572866 ], [ -15.134766979018295, 15.050988712691701 ] ] ] ] } }
+]
+}

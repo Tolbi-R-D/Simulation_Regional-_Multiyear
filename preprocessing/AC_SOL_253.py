@@ -4,7 +4,11 @@ import numpy as np
 from netCDF4 import Dataset
 import pandas as pd
 import xarray as xr
+<<<<<<< HEAD
 from COORD import AC_GEOreference, mindist
+=======
+from COORD_AC import AC_GEOreference, mindist
+>>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616
 crds = AC_GEOreference()
 
 '''
