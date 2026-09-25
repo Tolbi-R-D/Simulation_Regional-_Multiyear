@@ -3,22 +3,8 @@ import numpy as np
 import os
 from datetime import datetime
 
-<<<<<<< HEAD
-def run_ac_pro_yrs(site_name, cluster_name, soil_name,
-                   DIR_OUT_ROOT, DirSoil, DirCli, DirCrop, DirSuppfiles,
-                   start_date, end_date):
-    from datetime import datetime
-    
-    # Transformer en années si besoin pour PRM
-    start_year = datetime.strptime(start_date, "%Y-%m-%d").year
-    end_year = datetime.strptime(end_date, "%Y-%m-%d").year
-    
-    fname = cluster_name
-
-=======
 def run_ac_pro_yrs(site_name, cluster_name, soil_name, DIR_OUT_ROOT, DirSoil, DirCli, DirCrop, DirSuppfiles, start_year, end_year):
     fname = cluster_name
->>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616
     
     # Chemins Windows robustes avec guillemets
     DirSoil_f = f'   "{os.path.abspath(DirSoil)}' + os.sep + '"\n'
@@ -35,13 +21,6 @@ def run_ac_pro_yrs(site_name, cluster_name, soil_name, DIR_OUT_ROOT, DirSoil, Di
         years = np.arange(start_year, end_year + 1)
         sim_s = [f"{y}-07-01" for y in years]
         sim_e = [f"{y}-12-31" for y in years]
-
-        # AJOUTEZ CETTE LIGNE POUR AFFICHER LE NOMBRE DE CYCLES
-<<<<<<< HEAD
-         #print(f"Nombre de cycles pour {cluster_name} : {len(sim_s)}")
-=======
-        #print(f"Nombre de cycles pour {cluster_name} : {len(sim_s)}")
->>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616
         
         fid.write(f"{fname}\n")
         fid.write('\t 7.1\t\t: AquaCrop Version (August 2023)\n')
@@ -53,10 +32,8 @@ def run_ac_pro_yrs(site_name, cluster_name, soil_name, DIR_OUT_ROOT, DirSoil, Di
             return int((s.year - 1901) * 365.25 + m_ref[s.month] + s.day)
 
         for n in range(len(sim_s)):
-<<<<<<< HEAD
             #print("sim_s :",sim_s[n], "; sim_e :", sim_e[n])
-=======
->>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616
+
             ds, de = to_ac(sim_s[n]), to_ac(sim_e[n])
             if n > 0: fid.write('  1\n')
             len(sim_s)

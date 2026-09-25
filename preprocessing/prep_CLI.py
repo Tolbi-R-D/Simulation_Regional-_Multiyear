@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #!/usr/bin/env python
 import xarray as xr
 import numpy as np
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     # MODIFIEZ LE CHEMIN CI-DESSOUS vers vos fichiers .nc
     PATH_DATA = "chemin/vers/vos/fichiers/*.nc" 
     run_cli_ts(53, 20, PATH_DATA)
-=======
+
 #!/usr/bin/env python
 import xarray as xr
 import numpy as np
@@ -199,4 +199,3 @@ def run_cli_ts(VAR_lat, VAR_lon,latini, lonini, st_lat,st_lon):
                                                         tmp_fn,
                                                         eto_fn,
                                                         prec_fn,'MaunaLoa.CO2']))
->>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616

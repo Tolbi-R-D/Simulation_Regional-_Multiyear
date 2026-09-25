@@ -5,22 +5,17 @@ import subprocess
 from AC_PRM_Aminata import run_ac_pro_yrs
 
 AC_EXECUTABLE_NAME = 'aquacrop.exe' 
-BASE_DIR = os.getcwd() 
+BASE_DIR = os.getcwd()
 
-<<<<<<< HEAD
-INPUT_DIR = os.path.join(BASE_DIR, 'climate_cassamance', 'INPUT')
-DIR_OUT_ROOT = os.path.join(BASE_DIR, 'climate_cassamance', 'OUTPUT')
-=======
 INPUT_DIR = os.path.join(BASE_DIR, 'data_senegal', 'INPUT')
 DIR_OUT_ROOT = os.path.join(BASE_DIR, 'data_senegal', 'OUTPUT')
->>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616
 
 DirSoil = os.path.join(INPUT_DIR, 'soil')
 DirCli = os.path.join(INPUT_DIR, 'climate')
 DirCrop = os.path.join(INPUT_DIR, 'crop')
 DirSuppfiles = os.path.join(INPUT_DIR, 'suppl_input')
 SIMUL_SOURCE = os.path.join(INPUT_DIR, 'SIMUL')
-AC_SOURCE = os.path.abspath(os.path.join(BASE_DIR, 'aquacrop-7.1-x86_64-windows', AC_EXECUTABLE_NAME))
+AC_SOURCE = os.path.abspath(os.path.join(BASE_DIR, 'aquacrop-7.3-x86_64-windows', AC_EXECUTABLE_NAME))
 
 def main():
     if not os.path.exists(DIR_OUT_ROOT): os.makedirs(DIR_OUT_ROOT)
@@ -35,11 +30,7 @@ def main():
         for cluster in clusters:
             selected_soil = next((s for s in soils if s.lower() in cluster.lower()), soils[0] if soils else None)
             if selected_soil:
-<<<<<<< HEAD
-                wrapper(site, cluster, selected_soil, '2025-01-01', '2025-12-31')
-=======
                 wrapper(site, cluster, selected_soil, 2011, 2016)
->>>>>>> 1c54a49aa9ee900dca1fb006f34c905955f94616
 
 def wrapper(site_name, cluster_name, soil_name, start_year, end_year):
 
